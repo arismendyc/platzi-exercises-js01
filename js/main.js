@@ -240,3 +240,39 @@ const milesCalc = () => {
 };
 
 miles();
+
+//eleventh challenge
+
+const eleventhA = d.getElementById('eleventhA')
+const eleventhB = d.getElementById('eleventhB')
+const eleventhButton = d.getElementById('eleventhButton')
+const eleventhResult = d.getElementById('eleventhResult')
+
+const eleventh = () => {eleventhButton.addEventListener('click', eleventhCalc)};
+
+const less100 = (n) =>{
+    if (n<100 && n>0) {return true;}
+    else {return false}
+}
+
+const over1000 = (n) =>{
+    if (n>1000) {return true;}
+    else {return false}
+}
+
+const eleventhCalc = () => {
+    let a = parseFloat(eleventhA.value);
+    let b = parseFloat(eleventhB.value);
+    if (isNaN(a) && isNaN(b)) {eleventhResult.innerHTML = 'None is a number!';}
+    else if (isNaN(a)) {eleventhResult.innerHTML = '"a" is not a number!';}
+    else if (isNaN(b)) {eleventhResult.innerHTML = '"b" is not a number!';}
+    else if (!less100(a) && !over1000(b)){eleventhResult.innerHTML = 'None of them meet the conditions.';}
+    else if (!less100(a)){eleventhResult.innerHTML = '"a" does not meet the conditions.';}
+    else if (!over1000(b)){eleventhResult.innerHTML = '"b" does not meet the conditions.';}
+    else if (less100(a) && over1000(b)){
+        let result = b/a;
+        eleventhResult.innerHTML = `${result} times.`;
+    }
+};
+
+eleventh();
