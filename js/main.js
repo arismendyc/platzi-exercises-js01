@@ -45,3 +45,24 @@ thirdChallenge(coursesCategories);
 
 //fourth challenge
 
+const addNumberOne = d.getElementById('addNumberOne');
+const addNumberTwo = d.getElementById('addNumberTwo');
+const addButton = d.getElementById('addButton');
+const addResult = d.getElementById('addResult');
+
+const fourthButton = () => {
+    addButton.addEventListener('click', fourthChallenge);
+};
+
+const fourthChallenge = () =>{
+    let a = parseFloat(addNumberOne.value);
+    let b = parseFloat(addNumberTwo.value);
+    // console.log(a,b);
+
+    if (isNaN(a) && isNaN(b)) {addResult.innerHTML = 'None is a number!';}
+    else if (isNaN(a)){addResult.innerHTML = '"a" is not a number!';}
+    else if (isNaN(b)){addResult.innerHTML = '"b" is not a number!';}
+    else {addResult.innerHTML = a+b;}
+};
+
+fourthButton();
