@@ -181,16 +181,40 @@ const payCalc = () => {
     let tipRate = parseFloat(payTipRate.value);
     let taxRate = parseFloat(payTaxRate.value);
 
-    let tips = subtotal*(tipRate/100);
-    let taxes = subtotal*(taxRate/100);
-
-    let total = subtotal+tips+taxes;
-    total = total.toFixed(2);
-    
-    let perCapita = total/people;
-    perCapita = perCapita.toFixed(2);
-
-    payResult.innerHTML = `Total to pay ${total}$.<br>Total per capita ${perCapita}$.`;
+    if (isNaN(subtotal) || isNaN(people) || isNaN(tipRate) || isNaN(taxRate)) {
+        payResult.innerHTML = "Please verify the data entered. If you don't want to add a tip or tax value, please put a 0.";
+    }
+    else if (!isNaN(subtotal) && !isNaN(people) && !isNaN(tipRate) && !isNaN(taxRate)){
+        let tips = subtotal*(tipRate/100);
+        let taxes = subtotal*(taxRate/100);
+        let total = subtotal+tips+taxes;
+        total = total.toFixed(2);
+        let perCapita = total/people;
+        perCapita = perCapita.toFixed(2);
+        payResult.innerHTML = `Total to pay ${total}$.<br>Total per capita ${perCapita}$.`;
+    }
 }
 
 pay();
+
+//nineth challenge
+
+const dayInput = d.getElementById('dayInput');
+const dayResult = d.getElementById('dayResult');
+const dayButton = d.getElementById('dayButton');
+
+const day = () => {dayButton.addEventListener('click', dayCalc)};
+
+const dayCalc = () => {
+    let days = parseFloat(dayInput.value);
+
+    if(isNaN(days)){
+        dayResult.innerHTML = 'Please verify the data entered.';
+    } else{
+        let hours = days*24;
+        let seconds = hours*3600;
+        dayResult.innerHTML = `${hours} hours.<br>${seconds} seconds.`;
+    }
+};
+
+day();
