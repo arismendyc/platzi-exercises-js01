@@ -136,3 +136,30 @@ const pizzaCalc = () => {
 }
 
 pizza();
+
+//seventy challenge
+
+const ageName = d.getElementById('ageName');
+const ageCurrent = d.getElementById('ageCurrent');
+const ageResult = d.getElementById('ageResult');
+const ageButton = d.getElementById('ageButton');
+
+const age = () => {ageButton.addEventListener('click', ageCalc);}
+
+const ageCalc = () => {
+    let name = ageName.value;
+    let age = parseInt(ageCurrent.value);
+
+    if (isNaN(age)) {
+        ageResult.innerHTML = 'Please write your age in numbers.';
+    }
+
+    else {
+        let pastAge = age-1;
+        let futureAge = age+1;
+
+        ageResult.innerHTML = `${name} last year you were ${pastAge} years old and next year you will be ${futureAge} years old.`
+    }
+}
+
+age();
