@@ -103,3 +103,36 @@ const fifthChallenge = () =>{
 };
 
 fifthButtonClick();
+
+//sixth challenge
+
+const pizzaQuantity = d.getElementById('pizzaQuantity');
+const pizzaEat = d.getElementById('pizzaEat');
+const pizzaResult = d.getElementById('pizzaResult');
+const pizzaButton = d.getElementById('pizzaButton');
+
+const pizza = () => {
+    pizzaButton.addEventListener('click', pizzaCalc);
+}
+
+const pizzaCalc = () => {
+    let a = parseInt(pizzaQuantity.value);
+    let b = parseInt(pizzaEat.value);
+
+    if (isNaN(a) && isNaN(b)) {pizzaResult.innerHTML = 'None is a number!';}
+    else if (isNaN(a)){pizzaResult.innerHTML = '"a" is not a number!';}
+    else if (isNaN(b)){pizzaResult.innerHTML = '"b" is not a number!';}
+    else if(a<b){
+        pizzaResult.innerHTML = 'Impossible.';
+    }
+    else if(a>b){
+        let result = a-b;
+        pizzaResult.innerHTML = `You brought ${a} servings of pizza to the party. You and your friends ate ${b} servings. So you had ${result} servings left :).`
+    }
+    else if(a=b){
+        let result = a-b;
+        pizzaResult.innerHTML = `You brought ${a} servings of pizza to the party. You and your friends ate ${b} servings. Therefore, you had no servings left :(.`
+    }
+}
+
+pizza();
