@@ -137,7 +137,7 @@ const pizzaCalc = () => {
 
 pizza();
 
-//seventy challenge
+//seventh challenge
 
 const ageName = d.getElementById('ageName');
 const ageCurrent = d.getElementById('ageCurrent');
@@ -163,3 +163,34 @@ const ageCalc = () => {
 }
 
 age();
+
+//eighth challenge
+
+const payInput = d.getElementById('payInput');
+const payPeople = d.getElementById('payPeople');
+const payTipRate = d.getElementById('payTipRate');
+const payTaxRate = d.getElementById('payTaxRate');
+const payButton = d.getElementById('payButton');
+const payResult = d.getElementById('payResult');
+
+const pay = () => {payButton.addEventListener('click', payCalc)}
+
+const payCalc = () => {
+    let subtotal = parseFloat(payInput.value);
+    let people = parseInt(payPeople.value);
+    let tipRate = parseFloat(payTipRate.value);
+    let taxRate = parseFloat(payTaxRate.value);
+
+    let tips = subtotal*(tipRate/100);
+    let taxes = subtotal*(taxRate/100);
+
+    let total = subtotal+tips+taxes;
+    total = total.toFixed(2);
+    
+    let perCapita = total/people;
+    perCapita = perCapita.toFixed(2);
+
+    payResult.innerHTML = `Total to pay ${total}$.<br>Total per capita ${perCapita}$.`;
+}
+
+pay();
