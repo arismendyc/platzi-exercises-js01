@@ -209,7 +209,7 @@ const dayCalc = () => {
     let days = parseFloat(dayInput.value);
 
     if(isNaN(days)){
-        dayResult.innerHTML = 'Please verify the data entered.';
+        dayResult.innerHTML = 'Please check the data entered.';
     } else{
         let hours = days*24;
         let seconds = hours*3600;
@@ -218,3 +218,25 @@ const dayCalc = () => {
 };
 
 day();
+
+//tenth challenge
+
+const milesInput = d.getElementById('milesInput');
+const milesButton = d.getElementById('milesButton');
+const milesResult = d.getElementById('milesResult');
+
+const miles = () => {milesButton.addEventListener('click', milesCalc)};
+
+const milesCalc = () => {
+    let a = parseFloat(milesInput.value);
+    let rate = 1.609344;
+
+    if (isNaN(a)) {
+        milesResult.innerHTML = 'Please check the data entered.'
+    } else {
+        let result = a*rate;
+        milesResult.innerHTML = `${result} km.`;
+    }
+};
+
+miles();
